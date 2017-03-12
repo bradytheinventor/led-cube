@@ -18,16 +18,13 @@ pins = [
     7, #pin 4, transistor 2
     8, #pin 14, transistor 1
     
-    11, #pin 17, RGB red (register 2 CLEAR)
     12, #pin 18, register 2 CLOCK
     13, #pin 21, register 2 LATCH
     10, #pin 15, register 2 SERIAL DATA
     
-    15, #pin 22, RGB green (register 1 CLEAR)
     16, #pin 23, register 1 CLOCK
     18, #pin 24, register 1 LATCH
-    22, #pin 25, register 1 SERIAL DATA
-    26] #pin something, RGB blue
+    22] #pin 25, register 1 SERIAL DATA
 
 transistors = [8, 7, 24, 23]
 
@@ -42,14 +39,10 @@ points = [[[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],
 
 """-------------CLASS DEFINITIONS----------------"""
 class ShiftRegister():
-    def __init__(self, datapin, clockpin, latchpin, clearpin):
+    def __init__(self, datapin, clockpin, latchpin):
         self.datapin = datapin
         self.clockpin = clockpin
         self.latchpin = latchpin
-        self.clearpin = clearpin
-
-        #disable register clearing
-        GPIO.output(self.clearpin, 1)
 
     def clock(self, n):
         #input data
@@ -72,9 +65,6 @@ class ShiftRegister():
         for i in range(16):
             self.clock(0)
         self.latch()
-        #GPIO.output(self.clearpin, 0)
-        #sleep(0.0000001)
-        #GPIO.output(self.clearpin, 1)
 
 #sequence class, used to run through patterns defined in LEDcube.py
 class Sequence():
@@ -111,8 +101,8 @@ class Multiplexer():
     def __init__(self):
         print("Initializing multiplexer...")
         self.running = True
-        self.register1 = ShiftRegister(10, 12, 13, 11)
-        self.register2 = ShiftRegister(22, 16, 18, 15)
+        self.register1 = ShiftRegister(10, 12, 13)
+        self.register2 = ShiftRegister(22, 16, 18)
 
     #the second parameter has to exist, but is ignored by my code,
     #   so I just gave it a fun strange name
