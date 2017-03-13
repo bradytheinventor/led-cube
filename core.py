@@ -68,27 +68,37 @@ class ShiftRegister():
 
 #sequence class, used to run through patterns defined in LEDcube.py
 class Sequence():
+    
+    #inputs a list of sublists, where each sublist contains three pattern
+    #   elements: the functions, its name parameter, and the number of repetitions
     def __init__(self, patterns):
-        self.patterns = patterns
+        self.patterns = []
+        
+        for p in range(len(patterns)):
+            self.patterns.append(patterns[p])
 
-    def getParameters(self, parameters):
-        self.parameters = []
-        for i in range(len(self.patterns)):
-            self.parameters.append(parameters[i])
+    #adds a single pattern sublist
+    def add(self, pattern):
+        self.patterns.append(pattern)
 
-    def getTimes(self, reps):
-        self.reps = reps
-
+    #run the sequence for times iterations
     def run(self, times, speed):
-        if times == "infinity":
-            times = 10000
-        t=times
+        t = times
         while t > 0:
+
+            #for every sublist
             for p in range(len(self.patterns)):
-                if not self.parameters[p] == "N":
-                    self.patterns[p](self.parameters[p], self.reps[p], speed)
+                #if the sublist contains real parameters, apply them
+                if not self.patterns[p][1] == "N":
+                    self.patterns[p][0](self.patterns[p][1],
+                                        self.patterns[p][2],
+                                        speed)
+
+                #otherwise run without a parameter
                 else:
-                    self.patterns[p](self.reps[p], speed)
+                    self.patterns[p][0](self.patterns[p][2], speed)
+
+            #if t > 9999 then run the sequence forever
             if not t > 9999:
                 t -= 1
 

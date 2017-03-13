@@ -18,39 +18,60 @@ threadRunning = True
 
 """-----------------SEQUENCES----------------"""
 #run a series of patterns a specified number of times
-#if times is more than 9999 or is "infinity" then the sequence will go forever
+#if the number of times is more than 9999 then the sequence will run forever
+
+#create sequences by passing a list of sublists, where each sublist contains
+#   the information for one pattern: name, parameter, and number of repetitions
+
+#if the pattern does not require a parameter, pass "N" to not use one
 
 #sequence 1 is the main function showcase
-sequence1 = Sequence([voxelRand, transition, bounce, transition,
-                      transition, transition, bounce, sinewave, sinewave, sinewave,
-                      transition, spin, transition, transition, rain,
-                      transition, bounce, transition, woopwoop, transition,
-                      transition, transition, voxelSend, transition,
-                      bounce, transition, spin, transition, transition])
-sequence1.getParameters(["N", "start-xbounce", "x", "xbounce-xname",
-                         "xname-xbounce", "xbounce-ybounce", "y", "worm",
-                         "sine", "bounce", "ybounce-xspin", "x",
-                         "xspin-ybounce", "ybounce-rain", "snow",
-                         "ybounce-zbounce", "z", "zbounce-woopwoop", "N",
-                         "woopwoop-zbounce", "zbounce-xbounce",
-                         "xbounce-ybounce", "N", "ybounce-xbounce", "x",
-                         "xbounce-yspin", "y", "yspin-xbounce", "xbounce-end"])
-sequence1.getTimes([175, 1, 5, 1, 1, 1, 5, 5, 5, 5, 1, 10, 1, 1, 64, 1,
-                    5, 1, 20, 1, 1, 1, 50, 1, 5, 1, 10, 1, 1])
+sequence1 = Sequence([[voxelRand,   "N",                175],
+                      [transition,  "start-xbounce",    1],
+                      [bounce,      "x",                5],
+                      [transition,  "xbounce-xname",    1],
+                      [transition,  "xname-xbounce",    1],
+                      [transition,  "xbounce-ybounce",  1],
+                      [bounce,      "y",                5],
+                      [sinewave,    "worm",             5],
+                      [sinewave,    "sine",             5],
+                      [sinewave,    "bounce",           5],
+                      [transition,  "ybounce-xspin",    1],
+                      [spin,        "x",                10],
+                      [transition,  "xspin-ybounce",    1],
+                      [transition,  "ybounce-rain",     1],
+                      [rain,        "snow",             64],
+                      [transition,  "ybounce-zbounce",  1],
+                      [bounce,      "z",                5],
+                      [transition,  "zbounce-woopwoop", 1],
+                      [woopwoop,    "N",                20],
+                      [transition,  "woopwoop-zbounce", 1],
+                      [transition,  "zbounce-xbounce",  1],
+                      [transition,  "xbounce-ybounce",  1],
+                      [voxelSend,   "N",                50],
+                      [transition,  "ybounce-xbounce",  1],
+                      [bounce,      "x",                5],
+                      [transition,  "xbounce-yspin",    1],
+                      [spin,        "y",                10],
+                      [transition,  "yspin-xbounce",    1],
+                      [transition,  "xbounce-end",      1]])
 
 #sequence 2 is a sinewave show-off
-sequence2 = Sequence([transition, transition, sinewave, sinewave, sinewave,
-                       voxelRand])
-sequence2.getParameters(["start-xbounce", "xbounce-ybounce", "worm", "sine",
-                         "bounce", "N"])
-sequence2.getTimes([1, 1, 5, 5, 5, 1])
+sequence2 = Sequence([[transition,  "start-xbounce",    1],
+                      [transition,  "xbounce-ybounce",  1],
+                      [sinewave,    "worm",             5],
+                      [sinewave,    "sine",             5],
+                      [sinewave,    "bounce",           5],
+                      [voxelRand,   "N",                175]])
 
 #sequence 3 is a spiral show-off
-sequence3 = Sequence([transition, bounce, transition, spiral, transition,
-                      bounce, transition])
-sequence3.getParameters(["start-xbounce", "x", "xbounce-spiral", "N",
-                         "spiral-xbounce", "x", "xbounce-end"])
-sequence3.getTimes([1, 5, 1, 6, 1, 5, 1])
+sequence3 = Sequence([[transition,  "start-xbounce",    1],
+                      [bounce,      "x",                5],
+                      [transition,  "xbounce-spiral",   1],
+                      [spiral,      "N",                6],
+                      [transition,  "spiral-xbounce",   1],
+                      [bounce,      "x",                5],
+                      [transition,  "xbounce-end",      1]])
 
 """---------------MAIN FUNCTION----------------"""
 try:
@@ -79,8 +100,10 @@ try:
 
     sequence2.run(1, 0.075)
     sleep(2)
+    
     sequence3.run(1, 0.075)
     sleep(2)
+    
     sequence1.run(1, 0.075)
     
     #clear transistors and shift registers
