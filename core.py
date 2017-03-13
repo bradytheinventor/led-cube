@@ -47,14 +47,14 @@ class ShiftRegister():
 
     def clock(self, n):
         #input data
-        if n != "NONE":
-            GPIO.output(self.datapin, n)
+        GPIO.output(self.datapin, n)
+        
         #clock clock (whee)
         GPIO.output(self.clockpin, 1)
         GPIO.output(self.clockpin, 0)
+        
         #reset data pin
-        if n != "NONE":
-            GPIO.output(self.datapin, 0)
+        GPIO.output(self.datapin, 0)
 
     def latch(self):
         #latch and reset register
