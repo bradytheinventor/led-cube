@@ -3,7 +3,7 @@
 
 #import points list, time.sleep, random.randint, and fundamental plotting
 #   functions
-from LEDcubeCore import points
+from core import points
 from time import sleep
 from random import randint
 from plot import *

@@ -2,7 +2,7 @@
 #   should use these to write to the 'points' list
 
 #import points list
-from LEDcubeCore import points
+from core import points
 
 #sets a specific LED high or low
 def plot(x, y, z, n=1):

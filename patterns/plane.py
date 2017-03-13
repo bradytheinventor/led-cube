@@ -2,7 +2,7 @@
 #   across the cube or spin them around the cube
 
 #import points list, time.sleep, and fundamental plotting functions
-from LEDcubeCore import points
+from core import points
 from time import sleep
 from plot import *
 

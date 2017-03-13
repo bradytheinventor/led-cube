@@ -3,7 +3,7 @@
 #   between all patterns, etc.
 
 #import points list, time.sleep, and fundamental plotting functions
-from LEDcubeCore import points
+from core import points
 from time import sleep
 from plot import *
 

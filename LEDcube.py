@@ -1,7 +1,7 @@
 #import core functions
 import traceback
 
-from LEDcubeCore import *
+from core import *
 from patterns.plot import *
 from patterns.geometric import *
 from patterns.plane import *
