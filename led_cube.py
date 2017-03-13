@@ -95,6 +95,8 @@ try:
     #run through sequences
     print "Running..."
 
+    """-----PUT YOUR PATTERNS TO BE RUN INSIDE THIS BLOCK-----"""
+    
     sequence2.run(1, 0.075)
     sleep(2)
     
@@ -102,6 +104,8 @@ try:
     sleep(2)
     
     sequence1.run(1, 0.075)
+
+    """-----PUT YOUR PATTERNS TO BE RUN INSIDE THIS BLOCK-----"""
     
     #clear transistors and shift registers
     print "Cleaning up resources..."
