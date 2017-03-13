@@ -1,4 +1,6 @@
 #import core functions
+import traceback
+
 from LEDcubeCore import *
 from patterns.plot import *
 from patterns.plane import *
@@ -57,10 +59,10 @@ try:
     multiplexer.register1.clear()
     multiplexer.register2.clear()
 
-    #wait for ENTER to be pressed (the variable is never used, so I gave it a fun name!)
+    #wait for ENTER to be pressed
     print " "
-    print "If it's unplugged, connect the LED cube to the Raspberry Pi now."
-    whistlingPeanutsAndJugglingHippos = raw_input("Press ENTER to begin.")
+    print "Connect the LED cube to the Raspberry Pi now."
+    raw_input("When you are ready, press ENTER to begin.")
     print " "
     sleep(0.25)
     
@@ -105,14 +107,15 @@ except KeyboardInterrupt:
 
 except:
     #clear transistors and shift registers
-    print("Quitting due to unknown error, details are as follows:")
+    print("Quitting due to exception, stack trace is as follows: ")
+    traceback.print_exc()
+    
     for transistor in transistors:
         GPIO.output(transistor, 0)
     multiplexer.register1.clear()
     multiplexer.register2.clear()
 
     #multiplexer.running = False
-    #another fun variable name
-    flyingRhinocerousesAreAwesome = raw_input("\nPress ENTER to quit.")
+    raw_input("\nPress ENTER to quit.")
 
     GPIO.cleanup()
