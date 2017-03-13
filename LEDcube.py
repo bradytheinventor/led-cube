@@ -107,8 +107,10 @@ try:
     print "Cleaning up resources..."
     for transistor in transistors:
         GPIO.output(transistor, 0)
+    
     multiplexer.register1.clear()
     multiplexer.register2.clear()
+    
     print "Done."
 
     #multiplexer.running = False
@@ -117,23 +119,27 @@ try:
 except KeyboardInterrupt:
     #clear transistors and shift registers
     print "\nCleaning up resources..."
+    
     for transistor in transistors:
         GPIO.output(transistor, 0)
+    
     multiplexer.register1.clear()
     multiplexer.register2.clear()
 
     print "Quitting due to KeyboardInterrupt (CTRL-C)."
-    #multiplexer.running = False
     
+    #multiplexer.running = False
     GPIO.cleanup()
 
 except:
-    #clear transistors and shift registers
+    #print error message and stack trace
     print("Quitting due to exception, stack trace is as follows: ")
     traceback.print_exc()
-    
+
+    #clear transistors and shift registers
     for transistor in transistors:
         GPIO.output(transistor, 0)
+        
     multiplexer.register1.clear()
     multiplexer.register2.clear()
 

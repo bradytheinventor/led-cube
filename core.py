@@ -3,9 +3,10 @@ import RPi.GPIO as GPIO
 import threading
 from time import sleep
 
-#code designed for 4x4x4 LED cube, can be modified for larger cubes
+#code designed for a 4x4x4 LED cube, can be modified for larger cubes
+
 #these are the core functions, imported to LEDcube.py, which contains the
-#                              patterns and program setup
+#   main program operations
 
 """--------------SETUP VARIABLES AND GPIOS---------------"""
 GPIO.setwarnings(False)
