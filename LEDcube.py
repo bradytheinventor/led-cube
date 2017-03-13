@@ -3,13 +3,15 @@ import traceback
 
 from LEDcubeCore import *
 from patterns.plot import *
-from patterns.plane import *
 from patterns.geometric import *
+from patterns.plane import *
+from patterns.points import *
 from patterns.rainy import *
 from patterns.sine import *
-from patterns.points import *
 from patterns.transitions import *
+
 from math import sin, sqrt
+from time import sleep
 
 """----DECLARE VARIABLE----"""
 threadRunning = True

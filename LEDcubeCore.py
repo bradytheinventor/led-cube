@@ -1,6 +1,5 @@
 import RPi.GPIO as GPIO
 import threading
-from random import randint
 from time import sleep
 
 #code designed for 4x4x4 LED cube, can be modified for larger cubes
@@ -101,8 +100,6 @@ class threadRunClass():
 #   and writing its values to the LED cube
 class Multiplexer():
     def __init__(self):
-        print("Initializing multiplexer...")
-        
         self.running = True
         self.register1 = ShiftRegister(10, 12, 13)
         self.register2 = ShiftRegister(22, 16, 18)
