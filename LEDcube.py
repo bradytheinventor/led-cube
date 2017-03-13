@@ -5,44 +5,11 @@ from patterns.plane import *
 from patterns.geometric import *
 from patterns.rainy import *
 from patterns.sine import *
+from patterns.points import *
 from math import sin, sqrt
 
 """----DECLARE VARIABLE----"""
 threadRunning = True
-
-"""-------------------PATTERNS-------------------"""
-
-#fills the cube with random voxels
-#this has to run at a much faster speed than other programs
-def voxelRand(times, speed):
-    speed = speed / 10
-    speed = speed * 2
-    voxels = []
-    #plot random points to fill the cube
-    for t in range(times):
-        vX = randint(0, 3)
-        vY = randint(0, 3)
-        vZ = randint(0, 3)
-        plot(vX, vY, vZ, 1)
-        sleep(speed)
-    fullcube()
-    sleep(speed*2)
-    #plot random points to empty the cube
-    for t in range(times):
-        vX = randint(0, 3)
-        vY = randint(0, 3)
-        vZ = randint(0, 3)
-        plot(vX, vY, vZ, 0)
-        sleep(speed)
-    #smoothly erase any remaining points
-    plotFill(0, 3, 0, 3, 3, 3, 0)
-    sleep(speed*2)
-    plotFill(0, 2, 0, 3, 2, 3, 0)
-    sleep(speed*2)
-    plotFill(0, 1, 0, 3, 1, 3, 0)
-    sleep(speed*2)
-    fullcube(0)
-    sleep(speed)
 
 """-------------TRANSITIONS---------------"""
 #these are some transitions designed to smooth out jumps between animations
@@ -337,47 +304,6 @@ def transition(name, hasToBeHere, speed):
         fullcube(0)
         plotFill(0, 0, 0, 0, 3, 3)
         sleep(speed)
-
-#a firework-like effect
-def LFirework(times, speed):
-    for t in range(times):
-        stars = []
-        for n in range(4):
-            fullcube(0)
-            plot(0, n, 1)
-            sleep(speed)
-            fullcube(0)
-            plot(0, n, 2)
-            sleep(speed)
-            fullcube(0)
-            plot(1, n, 2)
-            sleep(speed)
-            fullcube(0)
-            plot(1, n, 1)
-            sleep(speed)
-        fullcube(0)
-        plot(0, 3, 1)
-        plot(2, 3, 1)
-        plot(1, 3, 0)
-        plot(1, 3, 2)
-        sleep(speed)
-        fullcube(0)
-        for n in range(randint(6, 9)):
-            stars.append([randint(0, 2), randint(2, 3), randint(0, 3)])
-
-        while stars != []:
-            for s in stars:
-                plot(s[0], s[1], s[2])
-                if s[1] < 3:
-                    plot(s[0], s[1]+1, s[2], 0)
-                
-                if s[1] > 0:
-                    s[1] -= 1
-                else:
-                    stars.remove(s)
-                sleep(speed/4)
-                    
-        
 
 """-----------------SEQUENCES----------------"""
 #run a series of patterns a specified number of times
