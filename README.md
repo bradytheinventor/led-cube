@@ -1,7 +1,7 @@
-# led-cube
+# Raspberry Pi LED Cube Code
 This repository contains the code for my Raspberry Pi-based 4x4x4 LED cube. The
 original version of this code was written many years ago, before I built the LED
-cube featured in my Instructable.
+cube featured in my Instructable (https://www.instructables.com/id/Raspberry-Pi-4x4x4-LED-Cube/).
 
 When I wrote the original code, I did not have a very good grasp of programming
 style. The code worked well, but was very messy and hard to understand. This
@@ -9,7 +9,8 @@ repository is an attempt to clear up the code and make it easier to understand.
 
 
 The main file 'led_cube.py' imports core operations from 'core.py' and patterns
-from the subdirectory '/patterns', and can be run by executing 'sudo python led_cube.py'.
+from the subdirectory '/patterns'. It can be run by 'cd'-ing into the project
+directory, then executing 'sudo python led_cube.py'.
 
 'core.py' contains code to update the LED cube display. This code runs in a
 separate thread at program start, in sort of a 'set-and-forget' manner.
