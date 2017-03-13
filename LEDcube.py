@@ -1,4 +1,4 @@
-#import core functions
+"""--------IMPORT MODULES AND PATTERNS--------"""
 import traceback
 
 from core import *
@@ -12,9 +12,6 @@ from patterns.transitions import *
 
 from math import sin, sqrt
 from time import sleep
-
-"""----DECLARE VARIABLE----"""
-threadRunning = True
 
 """-----------------SEQUENCES----------------"""
 #run a series of patterns a specified number of times

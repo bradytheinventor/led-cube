@@ -1,3 +1,4 @@
+"""--------------IMPORT MODULES--------------"""
 import RPi.GPIO as GPIO
 import threading
 from time import sleep
@@ -101,10 +102,6 @@ class Sequence():
             #if t > 9999 then run the sequence forever
             if not t > 9999:
                 t -= 1
-
-class threadRunClass():
-    def __init__(self, running):
-        self.running = running
 
 #this class runs in a separate thread, continuously reading the 'points' list
 #   and writing its values to the LED cube
