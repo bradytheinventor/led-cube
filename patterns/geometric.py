@@ -1,9 +1,11 @@
 #this file contains geometric shape-related patterns, i.e. patterns that draw
 #   or manipulate geometric shapes more complicated than lines and planes
 
-#import points list, time.sleep, and fundamental plotting functions
+#import points list, time.sleep, random.randint, and fundamental plotting
+#   functions
 from LEDcubeCore import points
 from time import sleep
+from random import randint
 from plot import *
 
 #lights a wireframe cube at the specified point of the specified size
