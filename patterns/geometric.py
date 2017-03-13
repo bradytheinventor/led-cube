@@ -1,12 +1,11 @@
 #this file contains geometric shape-related patterns, i.e. patterns that draw
 #   or manipulate geometric shapes more complicated than lines and planes
 
-#import points list, time.sleep, random.randint, and fundamental plotting
-#   functions
-from core import points
+#import fundamental plotting functions, time.sleep, and random.randint
+from plot import *
+
 from time import sleep
 from random import randint
-from plot import *
 
 #lights a wireframe cube at the specified point of the specified size
 def wireframe(time, size, xF=0, yF=0, zF=0):

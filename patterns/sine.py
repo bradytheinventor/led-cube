@@ -1,10 +1,10 @@
 #this file contains sinusoidal patterns, e.g. sinewave (although this is not a
 #   true sine wave)
 
-#import points list, time.sleep, and fundamental plotting functions
-from core import points
-from time import sleep
+#import fundamental plotting functions and time.sleep
 from plot import *
+
+from time import sleep
 
 #makes a pseudo-sinusoidal pattern; this will probably use real sines
 #   eventually, but for now it's hardcoded (which makes it unbelievably long,

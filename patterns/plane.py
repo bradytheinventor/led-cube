@@ -1,10 +1,10 @@
 #this file contains plane-related patterns, e.g. patterns that bounce planes
 #   across the cube or spin them around the cube
 
-#import points list, time.sleep, and fundamental plotting functions
-from core import points
-from time import sleep
+#import fundamental plotting functions and time.sleep
 from plot import *
+
+from time import sleep
 
 #spins a plane around the specified axis
 def spin(axis, times, speed):

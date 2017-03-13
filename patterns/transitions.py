@@ -2,10 +2,10 @@
 #   transitions as I've needed them, so not all transitions work along all axes,
 #   between all patterns, etc.
 
-#import points list, time.sleep, and fundamental plotting functions
-from core import points
-from time import sleep
+#import fundamental plotting functions and time.sleep
 from plot import *
+
+from time import sleep
 
 #right now, all transitions are run as a single function, which is a TERRIBLE
 #   means of execution. I will probably restructure this at some point.

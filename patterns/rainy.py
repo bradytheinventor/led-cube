@@ -1,11 +1,10 @@
 #this file contains "rainy" patterns, e.g. rain and voxelSend
 
-#import points list, time.sleep, random.randint, and fundamental plotting
-#   functions
-from core import points
+#import fundamental plotting functions, time.sleep, and random.randint
+from plot import *
+
 from time import sleep
 from random import randint
-from plot import *
 
 #sends random voxels down the y axis, like a rain shower
 #this is a slightly resource-demanding program, so it runs at double speed

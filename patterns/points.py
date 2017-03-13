@@ -1,11 +1,10 @@
 #this file containes random-point patterns, e.g. voxelRand.
 
-#import points list, time.sleep, random.randint, and fundamental plotting
-#   functions
-from core import points
+#import fundamental plotting functions, time.sleep, and random.randint
+from plot import *
+
 from time import sleep
 from random import randint
-from plot import *
 
 #fills the cube with random voxels
 #because this uses a uniform random distribution, it has to run at a much
