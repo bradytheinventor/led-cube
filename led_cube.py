@@ -80,10 +80,10 @@ try:
     multiplexer.register2.clear()
 
     #wait for ENTER to be pressed
-    print " "
-    print "Connect the LED cube to the Raspberry Pi now."
-    raw_input("When you are ready, press ENTER to begin.")
-    print " "
+    print (" ")
+    print ("Connect the LED cube to the Raspberry Pi now.")
+    input("When you are ready, press ENTER to begin.")
+    print (" ")
     sleep(0.25)
     
     #start multiplexing thread
@@ -93,7 +93,7 @@ try:
     multiplexerThread.start()
 
     #run through sequences
-    print "Running..."
+    print ("Running...")
 
     """-----PUT YOUR PATTERNS TO BE RUN INSIDE THIS BLOCK-----"""
     
@@ -108,21 +108,21 @@ try:
     """-----PUT YOUR PATTERNS TO BE RUN INSIDE THIS BLOCK-----"""
     
     #clear transistors and shift registers
-    print "Cleaning up resources..."
+    print ("Cleaning up resources...")
     for transistor in transistors:
         GPIO.output(transistor, 0)
     
     multiplexer.register1.clear()
     multiplexer.register2.clear()
     
-    print "Done."
+    print ("Done.")
 
     #multiplexer.running = False
     GPIO.cleanup()
 
 except KeyboardInterrupt:
     #clear transistors and shift registers
-    print "\nCleaning up resources..."
+    print ("\nCleaning up resources...")
     
     for transistor in transistors:
         GPIO.output(transistor, 0)
@@ -130,7 +130,7 @@ except KeyboardInterrupt:
     multiplexer.register1.clear()
     multiplexer.register2.clear()
 
-    print "Quitting due to KeyboardInterrupt (CTRL-C)."
+    print ("Quitting due to KeyboardInterrupt (CTRL-C).")
     
     #multiplexer.running = False
     GPIO.cleanup()
@@ -148,6 +148,6 @@ except:
     multiplexer.register2.clear()
 
     #multiplexer.running = False
-    raw_input("\nPress ENTER to quit.")
+    input("\nPress ENTER to quit.")
 
     GPIO.cleanup()
